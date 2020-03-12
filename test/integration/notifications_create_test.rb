@@ -15,11 +15,11 @@ class NotificationsCreateTest < ActionDispatch::IntegrationTest
       post "/notifications", params: { notification: { token: "SampleToken",
                                           dep_stn: "東京",
                                           arr_stn: "岡山",
-                                          hour: "22",
+                                          hour: "00",
                                           minute: "00",
                                           train: "在来線列車",
-                                          month: "03",
-                                          day: "30"}}
+                                          month: "04",
+                                          day: "01"}}
     end
     follow_redirect!
     assert_template root_path

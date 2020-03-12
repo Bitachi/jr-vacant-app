@@ -51,22 +51,33 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit_notification_email
+  end
+
   def update
     @user = User.find(params[:id])
+    old_email = @user.email
+    flag = (old_email == params[:email])
     if @user.update_attributes(user_params)
       flash[:success] = "ユーザ設定が更新されました"
-      redirect_to @user
+      if flag == false #古いemailと新しいemailに差分がある場合
+        #edit_notification_email(old_email)
+        public_method(:edit_notification_email).super_method.call
+        redirect_to @user
+      end
     else
       render "edit"
     end
   end
 
+
   def destroy
+    public_method(:index).super_method.call
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "ユーザーが削除されました"
     redirect_to users_url
   end
-  
+
 
 
   private

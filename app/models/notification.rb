@@ -2,14 +2,6 @@ class Notification < ApplicationRecord
   require 'openssl'
   require 'base64'
   password = ENV['MYAES_KEY']
-  # ======================================
-# <暗号化>
-# ======================================
-# plain_text: 暗号化したい文字列
-# password  : 好きなパスワード
-# bit       : 鍵の長さをビット数で指定。128, 192, 256が指定できる。
-#             基本的には256を指定しておけば安心。
-# ======================================
   validates :token,  presence: true
   before_save { encrypt_token }
 
@@ -42,14 +34,6 @@ class Notification < ApplicationRecord
     end
   end
 
-# ======================================
-# <復号>
-# ======================================
-# encrypted_text: 復号したい文字列
-# password      : 暗号化した時に指定した文字列
-# salt          : 暗号化した時に生成されたsalt
-# bit           : 暗号化した時に指定したビット数
-# ======================================
   def aes_decrypt(encrypted_text, password, salt, bit)
 
     if encrypted_text == nil || salt == nil
@@ -81,16 +65,6 @@ class Notification < ApplicationRecord
     return aes_decrypt(self.token, ENV['MYAES_KEY'], self.salt, 128)
   end
 
-  def self.notify
-    notifications = Notification.all
-
-    notifications.each do |notification|
-      #notification.token  = notification.get_token(password)
-      system("python3 main.py #{notification.month} #{notification.day} #{notification.hour} #{notification.minute} #{notification.train} #{notification.dep_stn} #{notification.arr_stn} #{notification.get_token}")
-    end
-  end
-
+  
 
 end
-
-#Notification.notify

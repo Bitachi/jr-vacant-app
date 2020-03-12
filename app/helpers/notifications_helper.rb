@@ -1,3 +1,3 @@
 module NotificationsHelper
-  Notification.notify
+  #Notification.notify
 end

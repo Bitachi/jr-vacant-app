@@ -23,6 +23,7 @@ class NotificationsController < ApplicationController
     @notification = Notification.new(notification_params)
     @current_user = current_user
     @notification.email = @current_user.email
+    @notification.user_id = @current_user.id
     if `python3 form_valid?.py "#{@notification.month}" "#{@notification.day}" "#{@notification.hour}" "#{@notification.minute}" "#{@notification.train}" "#{@notification.dep_stn}" "#{@notification.arr_stn}"`=="1\n"
       if @notification.save
         flash[:success] = "通知の登録に成功しました"

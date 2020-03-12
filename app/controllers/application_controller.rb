@@ -6,6 +6,32 @@ class ApplicationController < ActionController::Base
     render html: "hello, world!"
   end
 
+
+  #    notifications = Notification.where(email: old_email)
+  #    notifications.each do |notification|
+  #      notification.email = params[:email]
+  #      notification.save
+  #    end
+  #  end
+
+  def edit_notification_email
+    notifications = Notification.where(user_id: params[:id])
+    email = User.find(params[:id]).email
+    notifications.each do |notification|
+      notification.email = email
+      notification.save
+    end
+  end
+
+  def index
+    email = User.find(params[:id]).email
+    notifications = Notification.where(email: email)
+    notifications.each do |notification|
+      notification.destroy
+    end
+  end
+
+
   private
 
     def logged_in_user

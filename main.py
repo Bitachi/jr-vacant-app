@@ -50,9 +50,9 @@ if __name__ == '__main__':
 
 
     #ローカルの場合
-    driver_path = "/Users/takamigo/simple_web_crawlers/chromedriver"
+    #driver_path = "/Users/takamigo/simple_web_crawlers/chromedriver"
     #デプロイする場合
-    #driver_path = "/app/.chromedriver/bin/chromedriver"
+    driver_path = "/app/.chromedriver/bin/chromedriver"
 
     # Chromeを起動
     driver = webdriver.Chrome(executable_path=driver_path, options=options)

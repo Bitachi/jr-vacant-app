@@ -32,7 +32,7 @@ if __name__ == '__main__':
         #ユーザのトークン設定
     my_token = args[8]
     #プログラム動作開始を通知
-    send_message("Started Working", my_token)
+    #send_message("Started Working", my_token)
 
     #h = 1
     #while h == 1:
@@ -50,9 +50,9 @@ if __name__ == '__main__':
 
 
     #ローカルの場合
-    #driver_path = "/Users/takamigo/simple_web_crawlers/chromedriver"
+    driver_path = "/Users/takamigo/simple_web_crawlers/chromedriver"
     #デプロイする場合
-    driver_path = "/app/.chromedriver/bin/chromedriver"
+    #driver_path = "/app/.chromedriver/bin/chromedriver"
 
     # Chromeを起動
     driver = webdriver.Chrome(executable_path=driver_path, options=options)

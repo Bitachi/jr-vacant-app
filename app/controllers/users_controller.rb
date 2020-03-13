@@ -57,14 +57,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     old_email = @user.email
-    flag = (old_email == params[:email])
     if @user.update_attributes(user_params)
       flash[:success] = "ユーザ設定が更新されました"
-      if flag == false #古いemailと新しいemailに差分がある場合
-        #edit_notification_email(old_email)
+      if old_email != @user.email #古いemailと新しいemailに差分がある場合
         public_method(:edit_notification_email).super_method.call
-        redirect_to @user
       end
+      redirect_to @user
     else
       render "edit"
     end

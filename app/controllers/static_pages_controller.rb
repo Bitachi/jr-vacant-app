@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
 
   def howto
   end
+
+  def structure
+  end
 end

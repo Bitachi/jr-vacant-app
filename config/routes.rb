@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get '/howto', to: "static_pages#howto"
   get "/about", to: "static_pages#about"
+  get "/structure", to: "static_pages#structure"
   # For details on the DSL av ailable within this file, see http://guides.rubyonrails.org/routing.html
   get "/signup", to: "users#new"
   post '/signup',  to: 'users#create'

@@ -98,7 +98,7 @@ if __name__ == '__main__':
                 #print(table[i-2])
                 #print(td)
                 if result3 or result4:
-                    message = str(month)+"/"+str(day)+"空席あり\n"+str(table[i-4])+"\n"+str(table[i-3])+"\n"+str(table[i-2])+"\n"+str(td)+"\nhttps://www7.eki-net.com/mp/p/(S(g2bbe2swhnqjn3rwt3jtf0i5))/spmember/wb/SMLogin/Login?t=..%2f..%2f..%2fspmember%2fwb%2fSMTop%2fTop2?src=estop_b"
+                message = str(month)+"/"+str(day)+str(dep_stn)+"→"+str(arr_stn)+"空席あり\n"+str(table[i-4])+"\n"+str(table[i-3])+"\n"+str(table[i-2])+"\n"+str(td)+"\nhttps://www7.eki-net.com/mp/p/(S(g2bbe2swhnqjn3rwt3jtf0i5))/spmember/wb/SMLogin/Login?t=..%2f..%2f..%2fspmember%2fwb%2fSMTop%2fTop2?src=estop_b"
                     send_message(message, my_token)
 
     driver.close()

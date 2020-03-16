@@ -16,9 +16,11 @@ class ApplicationController < ActionController::Base
 
   def edit_notification_email
     notifications = Notification.where(user_id: params[:id])
-    email = User.find(params[:id]).email
-    notifications.each do |notification|
-      notification.update_column(:email, email)
+    if notifications.present?
+      email = User.find(params[:id]).email
+      notifications.each do |notification|
+        notification.update_column(:email, email)
+      end
     end
   end
 

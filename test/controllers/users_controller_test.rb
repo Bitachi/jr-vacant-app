@@ -67,4 +67,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+
+  test "associated notfications should be deleted" do
+    email = @user.email
+    @user.destroy
+    assert Notification.find_by(email: email).nil?
+  end
 end

@@ -1,5 +1,4 @@
 <% provide(:title, "ホーム") %>
-
   <div class="home-top-wrapper bg-light">
     <h1>JR空席通知アプリ</h1>
     <p>
@@ -9,13 +8,30 @@
     <p>また、<a target="_blank" href="http://www.jr.cyberstation.ne.jp/vacancy/Vacancy.html">JRサイバーステーション</a>を用いて空席を通知します。利用可能時間は6:30~22:30です。
 
     </p>
-    <%= link_to "このアプリについて",  about_path, class: "btn btn-lg btn-primary" %>
-    <%= link_to "使い方",  howto_path, class: "btn btn-lg btn-primary" %>
-    <% if not logged_in? %>
-      <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary" %>
-    <%else%>
-      <%= link_to "鉄道情報", microposts_index_path, class: "btn btn-lg btn-primary" %>
-      <%= link_to "通知登録", notifications_path, class: "btn btn-lg btn-primary" %>
-      <%= link_to "通知一覧", notifications_index_path, class: "btn btn-lg btn-primary" %>
-    <%end%>
+    <div class="home-btns">
+      <div class="">
+        <%= link_to "アバウト",  about_path, class: "col-xs-12  col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1 btn btn-lg btn-primary" %>
+      </div>
+      <div class=" ">
+        <%= link_to "使い方",  howto_path, class: "col-xs-12  col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1 btn btn-lg btn-primary" %>
+      </div>
+      <% if not logged_in? %>
+        <div class=" ">
+          <%= link_to "新規登録", signup_path, class: "col-xs-12  col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1 btn btn-lg btn-primary" %>
+        </div>
+
+      <%else%>
+        <div class="">
+          <%= link_to "鉄道情報", microposts_index_path, class: "col-xs-12  col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1 btn btn-lg btn-primary" %>
+        </div>
+
+        <div class=" ">
+          <%= link_to "通知登録", notifications_path, class: "col-xs-12  col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1 btn btn-lg btn-primary" %>
+        </div>
+        <div class=" ">
+          <%= link_to "通知一覧", notifications_index_path, class: "col-xs-12  col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1 btn btn-lg btn-primary" %>
+        </div>
+      <%end%>
+    </div>
+
   </div>

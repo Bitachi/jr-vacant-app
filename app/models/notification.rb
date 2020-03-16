@@ -61,10 +61,8 @@ class Notification < ApplicationRecord
      self.token, self.salt = aes_encrypt(self.token, ENV['MYAES_KEY'], 128)
   end
 
+  
   def get_token
     return aes_decrypt(self.token, ENV['MYAES_KEY'], self.salt, 128)
   end
-
-  
-
 end

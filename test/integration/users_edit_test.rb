@@ -24,9 +24,17 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit" do
-    get login_path
-    post login_path, params: { session: { email:    @user.email,
-                                          password: 'password' } }
+    #ログイン処理
+    log_in_as @user
+    get notifications_path
+    post "/notifications", params: { notification: { token: "SampleToken",
+                                        dep_stn: "東京",
+                                        arr_stn: "岡山",
+                                        hour: "00",
+                                        minute: "00",
+                                        train: "在来線列車",
+                                        month: "03",
+                                        day: "30"}}
     get edit_user_path(@user)
     assert_template "users/edit"
     name = "Example Name"
@@ -40,7 +48,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal name, @user.name
     assert_equal email, @user.email
+    assert Notification.find_by(email: email)
   end
 
-  
 end

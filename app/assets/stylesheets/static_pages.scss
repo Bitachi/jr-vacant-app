@@ -14,12 +14,16 @@ h2 {
   border-bottom: 1px solid #271c19;
 }
 #image1, #image2 {
-  width: 70%;
+  width: 50%;
 }
 
 #image3, #image4 {
   width: 300px;
   height: 40%;
+}
+
+#image4-1 {
+  width: 35%;
 }
 span {
   color: red;
@@ -36,6 +40,13 @@ span {
 
 }
 
+
+.home-btns {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
 .btn-primary {
   color: #271c19;
   background-color: #ffc0ad;
@@ -49,4 +60,7 @@ span {
 
 #step1, #step2, #step3 {
   width: 800px;
+}
+.about-contents ul, ol {
+  clear:left;
 }

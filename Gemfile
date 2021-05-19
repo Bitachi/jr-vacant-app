@@ -10,7 +10,7 @@ gem 'faker',          '1.7.3'
 gem 'will_paginate',           '3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'sqlite3', '~> 1.3.6', group: :development
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 gem 'sass-rails', '~> 5.0'
 gem 'rails_12factor', group: :production
 gem 'uglifier', '>= 1.3.0'
